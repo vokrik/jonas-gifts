@@ -1,6 +1,8 @@
 import React from "react";
-import {Box, Typography, Button, Tab, Tabs, Card, CardContent, Grid, styled} from "@mui/material";
+import {Box, Typography, Card, CardContent, Grid, styled} from "@mui/material";
 import {FaCheck} from "react-icons/fa";
+import {Button} from "@components/Button";
+import { useRouter } from 'next/navigation'
 
 const StyledCard = styled(Card)(({theme}) => ({
     borderRadius: 16,
@@ -12,19 +14,9 @@ const StyledCard = styled(Card)(({theme}) => ({
     background: "linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%)"
 }));
 
-const ChoosePlanButton = styled(Button)(({theme}) => ({
-    marginTop: "auto",
-    padding: "12px 24px",
-    borderRadius: 8,
-    textTransform: "none",
-    fontWeight: 600,
-    transition: "all 0.3s ease",
-    "&:hover": {
-        transform: "scale(1.05)"
-    }
-}));
 
-const PricingCard = ({title, price, features, isPopular, period}) => (
+
+const PricingCard = ({title, price, features, isPopular, period, onNavigate}) => (
     <StyledCard
         sx={{
             height: "100%",
@@ -78,41 +70,47 @@ const PricingCard = ({title, price, features, isPopular, period}) => (
                     </Box>
                 ))}
             </Box>
-            <ChoosePlanButton
+            <Button
                 variant="contained"
                 color={isPopular ? "primary" : "inherit"}
                 fullWidth
                 aria-label={`Choose ${title} plan`}
+                onClick={onNavigate}
             >
-                Choose Plan
-            </ChoosePlanButton>
+                Zobrazit seznam
+            </Button>
         </CardContent>
     </StyledCard>
 );
 
 const PricingPlan = () => {
+    const router = useRouter()
+
+
     const plans = [
         {
             title: "Děláme Jonášovi radost",
-            price: "1-1000",
+            price: "1-500",
             period: "kč",
             features: [
                 "Jonáš si bude mít s čím hrát",
                 "Naplňuje filosofii méně je více",
                 "Karma +10 bodů"
             ],
-            isPopular: false
+            isPopular: false,
+            onNavigate: () => router.push('/delame-radost')
         },
         {
             title: "Rozmazlujeme Jonáše",
-            price: "1000+",
+            price: "500+",
             period: "kč",
             features: [
                 "Foto se štastným Jonášem a vybranou hračkou",
                 "Jonáš bude o krok blíže k tomu být rozmazlené dítě",
                 "Karma +100 bodů",
             ],
-            isPopular: false
+            isPopular: false,
+            onNavigate: () => router.push('/rozmazlujeme')
         },
         {
             title: "Taťkova volba",
@@ -124,7 +122,8 @@ const PricingPlan = () => {
                 "Foto se štastným Jonášem a Taťkou",
                 "Karma +1000 bodů",
             ],
-            isPopular: true
+            isPopular: true,
+            onNavigate: () => router.push('/daddy'),
         }
     ]
 

@@ -10,5 +10,5 @@ const products = [
     }
 ]
 export default function DelameRadost() {
-    return <ProductsPage title="Děláme Jonášovi radost" products={products}/>
+    return <ProductsPage title="Rozmazlujeme Jonáše" products={products}/>
 }

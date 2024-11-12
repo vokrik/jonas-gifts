@@ -3,9 +3,9 @@ import PricingPlan from "@components/PricingPlan";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div>
       <Head>
-        <title>Jonášovi Vánoce</title>
+        <title>Jonášovy Vánoce</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
