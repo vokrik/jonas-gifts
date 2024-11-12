@@ -29,7 +29,7 @@ export default function ProductCard(
         <Card variant="outlined" sx={{maxWidth: 500}}>
             <CardMedia
                 component="img"
-                height="400"
+                height="350"
                 image={image}
 
             />
@@ -40,7 +40,7 @@ export default function ProductCard(
                 <Typography variant="h6" sx={{color: 'text.secondary'}}>
                     Přibližná cena: {price} Kč
                 </Typography>
-                <Link href={link} >Odkaz do e-shopu</Link>
+                <Link target="_blank" href={link} >Odkaz do e-shopu</Link>
             </CardContent>
             <CardActions>
                 {!isReserved ? <ReserveForm onReserve={onReserve}/> : "Rezervovano"}
