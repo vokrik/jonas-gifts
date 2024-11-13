@@ -29,6 +29,13 @@ const products = [
         link: 'https://www.martinus.cz/890659-chris-haughton-s-little-library/1740751?utm_source=google&utm_medium=cpc&utm_campaign=CZ-Martinus-D-PLA-tROAS-%CE%B1&utm_content=&utm_term=&utm_id=17439162855&gad_source=1&gclid=Cj0KCQiAlsy5BhDeARIsABRc6Zt8e8JWghyO1LwaPHrkPe7PmJRgceVGq1j_OIMJsNmoesAjXFACutEaAmyrEALw_wcB'
     },
     {
+        id: "tatra",
+        image: "/tatra.png",
+        title: "Tatra nezná bratra",
+        price: 700,
+        link: 'https://www.alza.cz/hracky/dino-tatra-148-oranzova-d2121664.htm'
+    },
+    {
         id: "nabytek",
         image: "/nabytek.png",
         title: "Multifunkční nábytek",
