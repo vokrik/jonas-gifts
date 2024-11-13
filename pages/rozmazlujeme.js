@@ -36,6 +36,13 @@ const products = [
         link: 'https://www.alza.cz/hracky/dino-tatra-148-oranzova-d2121664.htm'
     },
     {
+        id: "pribory",
+        image: "/pribory.png",
+        title: "Jídelní set",
+        price: 800,
+        link: 'https://www.babymarkt.com/cz/product/beaba-sada-silikonoveho-nadobi-4-kusy-A364138/'
+    },
+    {
         id: "nabytek",
         image: "/nabytek.png",
         title: "Multifunkční nábytek",
