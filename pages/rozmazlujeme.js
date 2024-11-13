@@ -9,14 +9,14 @@ const products = [
         link: 'https://www.spokonozka.cz/hracky-a-hry/tickit-senzoricke-reflexni-barevne-kulicky-4-ks/?gad_source=1&gclid=Cj0KCQiAlsy5BhDeARIsABRc6ZuxzJikHPmOsZrscfsfZUomffhxoi1syyDEG4gsWrUQtCtMxeHEYAgaAn8YEALw_wcB'
     }, {
         id: "kelimky",
-        image: "/kelimky.jpg",
+        image: "/kelimky.png",
         title: "Přísavné kelínky",
         price: 600,
         link: 'https://www.utukutu.cz/senzoricke-hracky/kelimky-s-prisavkou/'
     },
     {
         id: "spinner",
-        image: "/spinner.jpg",
+        image: "/spinner.png",
         title: "Vrtule",
         price: 800,
         link: 'https://www.utukutu.cz/senzoricke-hracky/fat-brain-spinnery-whirlysquigz/'

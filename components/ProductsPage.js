@@ -16,8 +16,8 @@ export default function ProductsPage({title, products}) {
             <title>{title}</title>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
-        <Grid container spacing={2} minHeight={160}>
-            <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
+        <Grid container spacing={2} minHeight={130}>
+            <Grid display="flex" justifyContent="center" alignItems="center" size="grow" >
                 <Typography
                     variant="h3"
                     align="center"
@@ -28,7 +28,7 @@ export default function ProductsPage({title, products}) {
                 </Typography>
             </Grid>
         </Grid>
-        <Grid container spacing={2} >
+        <Grid container spacing={2} minHeight={80}>
             <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
                 <Link href="/"> Zpět na seznam </Link>
             </Grid>

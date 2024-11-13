@@ -5,9 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {TextField} from "@mui/material";
+import {Alert, TextField} from "@mui/material";
 import {useState} from "react";
 import Link from "next/link";
+import CheckIcon from '@mui/icons-material/Check';
+
 
 function ReserveForm({onReserve}) {
 
@@ -43,7 +45,9 @@ export default function ProductCard(
                 <Link target="_blank" href={link} >Odkaz do e-shopu</Link>
             </CardContent>
             <CardActions>
-                {!isReserved ? <ReserveForm onReserve={onReserve}/> : "Rezervovano"}
+                {!isReserved ? <ReserveForm onReserve={onReserve}/> : <Alert icon={<CheckIcon fontSize="inherit" />} sx={{width: "100%"}} severity="success">
+                     Rezervováno
+                </Alert>}
             </CardActions>
         </Card>
     );

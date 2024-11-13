@@ -9,7 +9,7 @@ export default function ProductList({products}) {
             <Container maxWidth="lg">
                 <Grid container spacing={2}>
                     {products.map(product => (
-                        <Grid size={4}>
+                        <Grid size={{xs: 12, sm:6, md:4}}>
                             <ProductCard {...product}
                                          isReserved={product.isReserved} onReserve={product.onReserve}/>
                         </Grid>))}
