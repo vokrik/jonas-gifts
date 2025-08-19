@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Jonášovy Vánoce</title>
+        <title>Jonášovy Narozeniny</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

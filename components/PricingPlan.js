@@ -135,7 +135,7 @@ const PricingPlan = () => {
                 gutterBottom
                 sx={{mb: 4, fontWeight: "bold"}}
             >
-                Jonášovy Vánoce
+                Jonášovy Narozeniny
             </Typography>
             <Grid container spacing={4}>
                 {plans.map((plan, index) => (
