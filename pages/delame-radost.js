@@ -9,13 +9,6 @@ const products = [
         link: 'https://www.ceskykoutek.cz/wee-gallery-colour-me-knizka-do-vody-ocean/'
     },
     {
-        id: "dinosauri",
-        image: "/dinosauri.jpg",
-        title: "Omalovánkosaurus",
-        price: 500,
-        link: 'https://www.utukutu.cz/hracky-do-vody/knizka-do-vany-milujes-dinosaury/'
-    },
-    {
         id: "delnik",
         image: "/delnik.webp",
         title: "Malý dělňas",
