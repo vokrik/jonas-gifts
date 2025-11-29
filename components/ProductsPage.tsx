@@ -1,9 +1,14 @@
+// @ts-check
 import Head from "next/head";
 import ProductList from "@components/ProductList";
 import {useReserve} from "../hooks/useReserve";
 import {Grid2 as Grid, Typography} from "@mui/material";
 import React from "react";
+/** @typedef {import('../types/event').Product} Product */
 
+/**
+ * @param {{ title: string; products: Product[]; onBack?: () => void }} props
+ */
 export default function ProductsPage({title, products, onBack}) {
     const mutation = useReserve()
     return <>

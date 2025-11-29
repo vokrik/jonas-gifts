@@ -1,5 +1,11 @@
+// @ts-check
 import {useMutation, useQueryClient} from '@tanstack/react-query'
+/** @typedef {import('../types/api').ReservePayload} ReservePayload */
 
+/**
+ * @param {ReservePayload} data
+ * @returns {Promise<void>}
+ */
 const reserve = async (data) => {
     const response = await fetch('https://hook.eu2.make.com/yyybkkqvox9qrsqjmjlixj4n2rnknvmi', {
         headers: {
@@ -11,6 +17,9 @@ const reserve = async (data) => {
     })
 }
 
+/**
+ * @returns {import('@tanstack/react-query').UseMutationResult<void, unknown, ReservePayload, unknown>}
+ */
 const useReserve = () => {
     const queryClient = useQueryClient()
 

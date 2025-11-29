@@ -1,6 +1,11 @@
+// @ts-check
 import {useQuery} from '@tanstack/react-query'
+/** @typedef {import('../types/event').EventData} EventData */
 
 // Mocked unified API response. Replace fetchMock with a real fetch later.
+/**
+ * @returns {Promise<EventData>}
+ */
 const fetchEventData = async () => {
     // Hardcoded data structure for now
     // You can swap this with: const res = await fetch('/api/event'); return res.json();
@@ -142,9 +147,14 @@ const fetchEventData = async () => {
     }
 }
 
+/**
+ * Unified event data query hook
+ * @returns {import('@tanstack/react-query').UseQueryResult<EventData, unknown>}
+ */
 const useEventData = () => {
     return useQuery({
         queryKey: ['event'],
+        /** @returns {Promise<EventData>} */
         queryFn: () => fetchEventData(),
     })
 }

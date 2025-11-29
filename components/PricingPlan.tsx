@@ -2,6 +2,7 @@ import React from "react";
 import {Box, Typography, Card, CardContent, Grid, styled} from "@mui/material";
 import {FaCheck} from "react-icons/fa";
 import {Button} from "@components/Button";
+import type { PageSection } from "../types/event";
 
 const StyledCard = styled(Card)(({theme}) => ({
     borderRadius: 16,
@@ -13,9 +14,16 @@ const StyledCard = styled(Card)(({theme}) => ({
     background: "linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%)"
 }));
 
+type PricingCardProps = {
+    title: string;
+    price: string;
+    features: string[];
+    isPopular: boolean;
+    period: string;
+    onNavigate: () => void;
+};
 
-
-const PricingCard = ({title, price, features, isPopular, period, onNavigate}) => (
+const PricingCard: React.FC<PricingCardProps> = ({title, price, features, isPopular, period, onNavigate}) => (
     <StyledCard
         sx={{
             height: "100%",
@@ -82,14 +90,17 @@ const PricingCard = ({title, price, features, isPopular, period, onNavigate}) =>
     </StyledCard>
 );
 
-const PricingPlan = ({ eventTitle, pages, onSelect }) => {
+type PricingPlanProps = { eventTitle: string; pages: PageSection[]; onSelect?: (slug: string)=>void };
+
+const PricingPlan: React.FC<PricingPlanProps> = ({ eventTitle, pages, onSelect }) => {
     const plans = pages.map(p => ({
         title: p.title,
         price: p.price,
         period: p.period,
         features: p.features,
         isPopular: p.isPopular,
-        onNavigate: () => onSelect && onSelect(p.slug)
+        onNavigate: () => onSelect && onSelect(p.slug),
+        slug: p.slug
     }))
 
     return (
@@ -103,8 +114,8 @@ const PricingPlan = ({ eventTitle, pages, onSelect }) => {
                 {eventTitle}
             </Typography>
             <Grid container spacing={4}>
-                {plans.map((plan, index) => (
-                    <Grid item xs={12} md={4} key={index}>
+                {plans.map((plan) => (
+                    <Grid item xs={12} md={4} key={plan.slug}>
                         <PricingCard {...plan} />
                     </Grid>
                 ))}

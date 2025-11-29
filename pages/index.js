@@ -1,13 +1,16 @@
+// @ts-check
 import Head from 'next/head'
 import PricingPlan from "@components/PricingPlan";
 import ProductsPage from "@components/ProductsPage";
 import {useEventData} from "../hooks/useEventData";
 import React from "react";
 import { useRouter } from 'next/router';
+/** @typedef {import('../types/event').EventData} EventData */
 
 export default function Home() {
   const {data, isPending, isFetching} = useEventData()
-  const [selectedSlug, setSelectedSlug] = React.useState(null)
+  /** @type {[string|null, React.Dispatch<React.SetStateAction<string|null>>]} */
+  const [selectedSlug, setSelectedSlug] = React.useState(/** @type {string|null} */(null))
   const router = useRouter()
 
   // Sync selection with URL (?section=slug) so browser back/forward works
