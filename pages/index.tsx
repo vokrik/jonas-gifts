@@ -1,16 +1,13 @@
-// @ts-check
 import Head from 'next/head'
 import PricingPlan from "@components/PricingPlan";
 import ProductsPage from "@components/ProductsPage";
 import {useEventData} from "../hooks/useEventData";
 import React from "react";
 import { useRouter } from 'next/router';
-/** @typedef {import('../types/event').EventData} EventData */
 
 export default function Home() {
   const {data, isPending, isFetching} = useEventData()
-  /** @type {[string|null, React.Dispatch<React.SetStateAction<string|null>>]} */
-  const [selectedSlug, setSelectedSlug] = React.useState(/** @type {string|null} */(null))
+  const [selectedSlug, setSelectedSlug] = React.useState<string | null>(null)
   const router = useRouter()
 
   // Sync selection with URL (?section=slug) so browser back/forward works
@@ -27,7 +24,7 @@ export default function Home() {
 
   if (isPending || isFetching) return <div>Loading</div>
 
-  const selectedPage = selectedSlug ? data.pages.find(p => p.slug === selectedSlug) : null
+  const selectedPage = selectedSlug ? data.pages.find(p => p.slug === selectedSlug) ?? null : null
 
   return (
     <div>

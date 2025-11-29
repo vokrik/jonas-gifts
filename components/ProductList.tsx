@@ -1,28 +1,21 @@
-// @ts-check
-import Head from "next/head";
-import {Container, Grid2 as Grid} from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import ProductCard from "@components/ProductCard";
+import type { Product } from "../types/event";
 
-/**
- * @typedef {import('../types/event').Product} Product
- */
+type ProductWithAction = Product & { onReserve: (name: string) => void };
 
-/**
- * @typedef ProductWithAction
- * @property {(name: string) => void} onReserve
- */
+interface ProductListProps {
+    products: ProductWithAction[];
+}
 
-/**
- * @param {{ products: Array<Product & ProductWithAction> }} props
- */
-export default function ProductList({products}) {
+export default function ProductList({ products }: ProductListProps) {
 
     return (
         <div>
             <Container maxWidth="lg">
                 <Grid container spacing={2}>
-                    {products.map(product => (
-                        <Grid key={product.id} size={{xs: 12, sm:6, md:4}}>
+                    {products.map((product) => (
+                        <Grid item key={product.id} xs={12} sm={6} md={4}>
                             <ProductCard {...product}
                                          isReserved={product.isReserved} onReserve={product.onReserve}/>
                         </Grid>))}

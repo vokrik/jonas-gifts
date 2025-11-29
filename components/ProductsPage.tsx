@@ -1,41 +1,35 @@
-// @ts-check
 import Head from "next/head";
 import ProductList from "@components/ProductList";
 import {useReserve} from "../hooks/useReserve";
-import {Grid2 as Grid, Typography} from "@mui/material";
+import { Box, Typography, Link as MuiLink } from "@mui/material";
 import React from "react";
-/** @typedef {import('../types/event').Product} Product */
+import type { Product } from "../types/event";
 
-/**
- * @param {{ title: string; products: Product[]; onBack?: () => void }} props
- */
-export default function ProductsPage({title, products, onBack}) {
+type ProductsPageProps = { title: string; products: Product[]; onBack?: () => void };
+
+export default function ProductsPage({ title, products, onBack }: ProductsPageProps) {
     const mutation = useReserve()
     return <>
         <Head>
             <title>{title}</title>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
-        <Grid container spacing={2} minHeight={130}>
-            <Grid display="flex" justifyContent="center" alignItems="center" size="grow" >
-                <Typography
-                    variant="h3"
-                    align="center"
-                    gutterBottom
-                    sx={{mb: 4, fontWeight: "bold"}}
-                >
-                    {title}
-                </Typography>
-            </Grid>
-        </Grid>
-        <Grid container spacing={2} minHeight={80}>
-            <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
-                <a href="#" onClick={(e) => { e.preventDefault(); onBack && onBack(); }}>Zpět na seznam</a>
-            </Grid>
-        </Grid>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 130 }}>
+            <Typography
+                variant="h3"
+                align="center"
+                gutterBottom
+                sx={{mb: 4, fontWeight: "bold"}}
+            >
+                {title}
+            </Typography>
+        </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 80 }}>
+            <MuiLink href="#" onClick={(e) => { e.preventDefault(); onBack && onBack(); }}>Zpět na seznam</MuiLink>
+        </Box>
         <ProductList products={products.map((product) => ({
             ...product,
-            onReserve: (name) => mutation.mutate({id: product.id, name})
+            onReserve: (name: string) => mutation.mutate({id: product.id, name})
         }))}/>
     </>
 }
