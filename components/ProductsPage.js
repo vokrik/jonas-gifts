@@ -2,10 +2,9 @@ import Head from "next/head";
 import ProductList from "@components/ProductList";
 import {useReserve} from "../hooks/useReserve";
 import {Grid2 as Grid, Typography} from "@mui/material";
-import Link from "next/link";
 import React from "react";
 
-export default function ProductsPage({title, products}) {
+export default function ProductsPage({title, products, onBack}) {
     const mutation = useReserve()
     return <>
         <Head>
@@ -26,7 +25,7 @@ export default function ProductsPage({title, products}) {
         </Grid>
         <Grid container spacing={2} minHeight={80}>
             <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
-                <Link href="/"> Zpět na seznam </Link>
+                <a href="#" onClick={(e) => { e.preventDefault(); onBack && onBack(); }}>Zpět na seznam</a>
             </Grid>
         </Grid>
         <ProductList products={products.map((product) => ({

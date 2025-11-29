@@ -2,7 +2,6 @@ import React from "react";
 import {Box, Typography, Card, CardContent, Grid, styled} from "@mui/material";
 import {FaCheck} from "react-icons/fa";
 import {Button} from "@components/Button";
-import { useRouter } from 'next/navigation'
 
 const StyledCard = styled(Card)(({theme}) => ({
     borderRadius: 16,
@@ -83,15 +82,14 @@ const PricingCard = ({title, price, features, isPopular, period, onNavigate}) =>
     </StyledCard>
 );
 
-const PricingPlan = ({ eventTitle, pages }) => {
-    const router = useRouter()
+const PricingPlan = ({ eventTitle, pages, onSelect }) => {
     const plans = pages.map(p => ({
         title: p.title,
         price: p.price,
         period: p.period,
         features: p.features,
         isPopular: p.isPopular,
-        onNavigate: () => router.push(`/${p.slug}`)
+        onNavigate: () => onSelect && onSelect(p.slug)
     }))
 
     return (
