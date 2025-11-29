@@ -1,14 +1,9 @@
 import ProductsPage from "@components/ProductsPage";
+import {useEventData} from "../hooks/useEventData";
 
-const products = [
-    {
-        id: "jerab",
-        image: "/jerab.webp",
-        title: "Lego Jeřáb",
-        price: 14000,
-        link: 'https://www.alza.cz/hracky/lego-technic-42146-pasovy-jerab-liebherr-lr-13000-d7744563.htm?kampan=adwhr_hracky_pla_all_vendor-vykonnostni-lego_c_c_9219649__LO42146&gclid=Cj0KCQiAlsy5BhDeARIsABRc6Zu9Bc19VIiWbqCHvhyUCXa8AR2Exeu8hHGd1mMvAddSXJDI8LVl8JYaAiWpEALw_wcB'
-    }
-]
-export default function DelameRadost() {
-    return <ProductsPage title="Taťkova volba" products={products}/>
+export default function Daddy() {
+    const {data, isPending, isFetching} = useEventData()
+    if (isPending || isFetching) return <div>Loading</div>
+    const page = data.pages.find(p => p.slug === 'daddy')
+    return <ProductsPage title={page.title} products={page.products}/>
 }

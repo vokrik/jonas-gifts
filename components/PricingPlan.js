@@ -83,49 +83,16 @@ const PricingCard = ({title, price, features, isPopular, period, onNavigate}) =>
     </StyledCard>
 );
 
-const PricingPlan = () => {
+const PricingPlan = ({ eventTitle, pages }) => {
     const router = useRouter()
-
-
-    const plans = [
-        {
-            title: "Děláme Jonášovi radost",
-            price: "1-500",
-            period: "kč",
-            features: [
-                "Jonáš si bude mít s čím hrát",
-                "Naplňuje filosofii méně je více",
-                "Karma +10 bodů"
-            ],
-            isPopular: false,
-            onNavigate: () => router.push('/delame-radost')
-        },
-        {
-            title: "Rozmazlujeme Jonáše",
-            price: "500+",
-            period: "kč",
-            features: [
-                "Foto se štastným Jonášem a vybranou hračkou",
-                "Jonáš bude o krok blíže k tomu být rozmazlené dítě",
-                "Karma +100 bodů",
-            ],
-            isPopular: false,
-            onNavigate: () => router.push('/rozmazlujeme')
-        },
-        {
-            title: "Taťkova volba",
-            price: "😅",
-            period: "kč",
-            features: [
-                "Daddy approves!",
-                "Jonáše naučíme vaše jméno mezi prvními",
-                "Foto se štastným Jonášem a Taťkou",
-                "Karma +1000 bodů",
-            ],
-            isPopular: true,
-            onNavigate: () => router.push('/daddy'),
-        }
-    ]
+    const plans = pages.map(p => ({
+        title: p.title,
+        price: p.price,
+        period: p.period,
+        features: p.features,
+        isPopular: p.isPopular,
+        onNavigate: () => router.push(`/${p.slug}`)
+    }))
 
     return (
         <Box sx={{maxWidth: 1200, margin: "0 auto", padding: 4}}>
@@ -135,7 +102,7 @@ const PricingPlan = () => {
                 gutterBottom
                 sx={{mb: 4, fontWeight: "bold"}}
             >
-                Jonášovy Narozeniny
+                {eventTitle}
             </Typography>
             <Grid container spacing={4}>
                 {plans.map((plan, index) => (

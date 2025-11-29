@@ -17,7 +17,8 @@ const useReserve = () => {
     return useMutation({
         mutationFn: reserve,
         onSuccess: () => {
-            queryClient.invalidateQueries([{queryKey: ['reservations']}])
+            // After reserving, refresh unified event data
+            queryClient.invalidateQueries({queryKey: ['event']})
         }
     })
 }
