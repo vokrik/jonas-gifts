@@ -4,7 +4,9 @@ import {
     QueryClientProvider,
 } from '@tanstack/react-query'
 import React from "react";
-function Application({Component, pageProps}) {
+import type { AppProps } from 'next/app'
+
+function Application({ Component, pageProps }: AppProps) {
     const [queryClient] = React.useState(() => new QueryClient())
 
     return (
