@@ -9,7 +9,7 @@ const fetchEventData = async (): Promise<EventData> => {
         eventTitle: 'Jonášovy Narozeniny',
         pages: [
             {
-                slug: 'delame-radost',
+                sectionId: 'delame-radost',
                 title: 'Děláme Jonášovi radost',
                 price: '1-500',
                 period: 'kč',
@@ -63,7 +63,7 @@ const fetchEventData = async (): Promise<EventData> => {
                 ],
             },
             {
-                slug: 'rozmazlujeme',
+                sectionId: 'rozmazlujeme',
                 title: 'Rozmazlujeme Jonáše',
                 price: '500+',
                 period: 'kč',
@@ -117,7 +117,7 @@ const fetchEventData = async (): Promise<EventData> => {
                 ],
             },
             {
-                slug: 'daddy',
+                sectionId: 'daddy',
                 title: 'Taťkova volba',
                 price: '😅',
                 period: 'kč',

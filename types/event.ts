@@ -8,7 +8,7 @@ export interface Product {
 }
 
 export interface PageSection {
-  slug: string
+  sectionId: string
   title: string
   price: string
   period: string

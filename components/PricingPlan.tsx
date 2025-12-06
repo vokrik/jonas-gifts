@@ -90,7 +90,7 @@ const PricingCard: React.FC<PricingCardProps> = ({title, price, features, isPopu
     </StyledCard>
 );
 
-type PricingPlanProps = { eventTitle: string; pages: PageSection[]; onSelect?: (slug: string)=>void };
+type PricingPlanProps = { eventTitle: string; pages: PageSection[]; onSelect?: (sectionId: string)=>void };
 
 const PricingPlan: React.FC<PricingPlanProps> = ({ eventTitle, pages, onSelect }) => {
     const plans = pages.map(p => ({
@@ -99,8 +99,8 @@ const PricingPlan: React.FC<PricingPlanProps> = ({ eventTitle, pages, onSelect }
         period: p.period,
         features: p.features,
         isPopular: p.isPopular,
-        onNavigate: () => onSelect && onSelect(p.slug),
-        slug: p.slug
+        onNavigate: () => onSelect && onSelect(p.sectionId),
+        sectionId: p.sectionId
     }))
 
     return (
@@ -115,7 +115,7 @@ const PricingPlan: React.FC<PricingPlanProps> = ({ eventTitle, pages, onSelect }
             </Typography>
             <Grid container spacing={4}>
                 {plans.map((plan) => (
-                    <Grid item xs={12} md={4} key={plan.slug}>
+                    <Grid item xs={12} md={4} key={plan.sectionId}>
                         <PricingCard {...plan} />
                     </Grid>
                 ))}
