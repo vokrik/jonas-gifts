@@ -3,6 +3,7 @@ import {Box, Typography, Card, CardContent, Grid, styled} from "@mui/material";
 import {FaCheck} from "react-icons/fa";
 import {Button} from "@components/Button";
 import type {PageSection} from "../types/event";
+import ExtravagantButton from "@components/ExtravagantButton";
 
 const StyledCard = styled(Card)(({theme}) => ({
     borderRadius: 16,
@@ -77,7 +78,7 @@ const PricingCard: React.FC<PricingCardProps> = ({title, price, features, isPopu
                     </Box>
                 ))}
             </Box>
-            <Button
+            {!isPopular ? <Button
                 variant="contained"
                 color={isPopular ? "primary" : "inherit"}
                 fullWidth
@@ -85,7 +86,13 @@ const PricingCard: React.FC<PricingCardProps> = ({title, price, features, isPopu
                 onClick={onNavigate}
             >
                 Zobrazit seznam
-            </Button>
+            </Button> : <ExtravagantButton
+                onClick={onNavigate}
+            >
+                Zobrazit seznam
+            </ExtravagantButton>}
+
+
         </CardContent>
     </StyledCard>
 );
