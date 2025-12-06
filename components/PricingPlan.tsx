@@ -2,7 +2,7 @@ import React from "react";
 import {Box, Typography, Card, CardContent, Grid, styled} from "@mui/material";
 import {FaCheck} from "react-icons/fa";
 import {Button} from "@components/Button";
-import type { PageSection } from "../types/event";
+import type {PageSection} from "../types/event";
 
 const StyledCard = styled(Card)(({theme}) => ({
     borderRadius: 16,
@@ -90,15 +90,16 @@ const PricingCard: React.FC<PricingCardProps> = ({title, price, features, isPopu
     </StyledCard>
 );
 
-type PricingPlanProps = { eventTitle: string; pages: PageSection[]; onSelect?: (sectionId: string)=>void };
+type PricingPlanProps = { eventTitle: string; pages: PageSection[]; onSelect?: (sectionId: string) => void };
 
-const PricingPlan: React.FC<PricingPlanProps> = ({ eventTitle, pages, onSelect }) => {
+const PricingPlan: React.FC<PricingPlanProps> = ({eventTitle, pages, onSelect}) => {
     const plans = pages.map(p => ({
         title: p.title,
         price: p.price,
         period: p.period,
         features: p.features,
         isPopular: p.isPopular,
+        isEvergreen: p.isEvergreen,
         onNavigate: () => onSelect && onSelect(p.sectionId),
         sectionId: p.sectionId
     }))
@@ -114,7 +115,22 @@ const PricingPlan: React.FC<PricingPlanProps> = ({ eventTitle, pages, onSelect }
                 {eventTitle}
             </Typography>
             <Grid container spacing={4}>
-                {plans.map((plan) => (
+                {plans.filter(plan => !plan.isEvergreen).map((plan) => (
+                    <Grid item xs={12} md={4} key={plan.sectionId}>
+                        <PricingCard {...plan} />
+                    </Grid>
+                ))}
+            </Grid>
+            <Typography
+                variant="h3"
+                align="center"
+                gutterBottom
+                sx={{mb: 4, mt: 4, fontWeight: "bold"}}
+            >
+                Stálá nabídka
+            </Typography>
+            <Grid container spacing={4}>
+                {plans.filter(plan => plan.isEvergreen).map((plan) => (
                     <Grid item xs={12} md={4} key={plan.sectionId}>
                         <PricingCard {...plan} />
                     </Grid>

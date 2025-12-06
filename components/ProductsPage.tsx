@@ -5,7 +5,7 @@ import {Box, Typography, Link as MuiLink} from "@mui/material";
 import React from "react";
 import type {Product} from "../types/event";
 
-type ProductsPageProps = { title: string; products: Array<{ data: Product }>; onBack?: () => void };
+type ProductsPageProps = { isReservable: boolean; title: string; products: Array<{ data: Product }>; onBack?: () => void };
 
 export default function ProductsPage({title, products, onBack}: ProductsPageProps) {
     const mutation = useReserve()

@@ -5,10 +5,11 @@ import type { Product } from "../types/event";
 type ProductWithAction = Product & { onReserve: (name: string) => void };
 
 interface ProductListProps {
+    isReservable?: boolean;
     products: ProductWithAction[];
 }
 
-export default function ProductList({ products }: ProductListProps) {
+export default function ProductList({ isReservable, products }: ProductListProps) {
 
     return (
         <div>

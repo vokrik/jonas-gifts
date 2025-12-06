@@ -14,6 +14,7 @@ export interface PageSection {
     period: string
     features: string[]
     isPopular: boolean
+    isEvergreen?: boolean
     products: Array<{ data: Product }>
 }
 
