@@ -5,9 +5,14 @@ import {Box, Typography, Link as MuiLink} from "@mui/material";
 import React from "react";
 import type {Product} from "../types/event";
 
-type ProductsPageProps = { isReservable: boolean; title: string; products: Array<{ data: Product }>; onBack?: () => void };
+type ProductsPageProps = {
+    isReservable: boolean;
+    title: string;
+    products: Array<{ data: Product }>;
+    onBack?: () => void
+};
 
-export default function ProductsPage({title, products, onBack}: ProductsPageProps) {
+export default function ProductsPage({title, products, isReservable, onBack}: ProductsPageProps) {
     const mutation = useReserve()
     return <>
         <Head>
@@ -30,9 +35,11 @@ export default function ProductsPage({title, products, onBack}: ProductsPageProp
                 onBack && onBack();
             }}>Zpět na seznam</MuiLink>
         </Box>
-        <ProductList products={products.map(({data}) => ({
-            ...data,
-            onReserve: (name: string) => mutation.mutate({id: data.id, name})
-        }))}/>
+        <ProductList
+                     products={products.map(({data}) => ({
+                         ...data,
+                         isReservable,
+                         onReserve: (name: string) => mutation.mutate({id: data.id, name})
+                     }))}/>
     </>
 }

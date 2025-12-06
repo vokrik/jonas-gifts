@@ -1,15 +1,14 @@
-import { Container, Grid } from "@mui/material";
+import {Container, Grid} from "@mui/material";
 import ProductCard from "@components/ProductCard";
-import type { Product } from "../types/event";
+import type {Product} from "../types/event";
 
-type ProductWithAction = Product & { onReserve: (name: string) => void };
+type ProductWithAction = Product & { isReservable?: boolean; onReserve: (name: string) => void };
 
 interface ProductListProps {
-    isReservable?: boolean;
     products: ProductWithAction[];
 }
 
-export default function ProductList({ isReservable, products }: ProductListProps) {
+export default function ProductList({products}: ProductListProps) {
 
     return (
         <div>

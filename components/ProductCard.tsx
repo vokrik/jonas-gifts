@@ -14,7 +14,10 @@ import CheckIcon from '@mui/icons-material/Check'
 import {Button} from '@components/Button'
 import type {Product} from '../types/event'
 
-export type ProductCardProps = Product & { isReservable?: boolean; onReserve: (name: string) => void }
+export type ProductCardProps = Product & {
+    isReservable?: boolean
+    onReserve: (name: string) => void
+}
 
 function ReserveForm({onReserve}: { onReserve: (name: string) => void }) {
     const [name, setName] = React.useState('')
@@ -49,10 +52,10 @@ function ReserveForm({onReserve}: { onReserve: (name: string) => void }) {
 }
 
 export default function ProductCard({
-                                        isReservable,
                                         image,
                                         title,
                                         price,
+                                        isReservable,
                                         link,
                                         isReserved,
                                         onReserve
@@ -73,7 +76,7 @@ export default function ProductCard({
                     </MuiLink>
                 )}
             </CardContent>
-            {isReservable ?? <CardActions>
+            {isReservable && <CardActions>
                 {!isReserved ? (
                     <ReserveForm onReserve={onReserve}/>
                 ) : (
