@@ -5,6 +5,8 @@ import type {EventData} from '../types/event'
 const fetchEventData = async (): Promise<EventData> => {
     const res = await fetch('https://hook.eu2.make.com/63c45jn29wmw288ke3aifugd4tx6oc5f');
 
+
+
     return res.json();
     // return {
     //     eventTitle: 'Jonášovy Narozeniny',

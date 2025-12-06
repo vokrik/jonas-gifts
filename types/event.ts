@@ -1,23 +1,23 @@
 export interface Product {
-  id: string
-  image: string
-  title: string
-  price: number
-  link?: string
-  isReserved: boolean
+    id: string
+    image: string
+    title: string
+    price: number
+    link?: string
+    isReserved: boolean
 }
 
 export interface PageSection {
-  sectionId: string
-  title: string
-  price: string
-  period: string
-  features: string[]
-  isPopular: boolean
-  products: Product[]
+    sectionId: string
+    title: string
+    price: string
+    period: string
+    features: string[]
+    isPopular: boolean
+    products: Array<{ data: Product }>
 }
 
 export interface EventData {
-  eventTitle: string
-  pages: PageSection[]
+    eventTitle: string
+    pages: PageSection[]
 }
