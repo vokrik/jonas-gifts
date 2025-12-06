@@ -37,6 +37,7 @@ export default function Home() {
           title={selectedPage.title}
           products={selectedPage.products}
           isReservable={!selectedPage.isEvergreen}
+          isPopular={selectedPage.isPopular}
           onBack={() => {
             setSelectedSectionId(null)
             // Update the URL without a full navigation
