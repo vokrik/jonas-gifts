@@ -13,12 +13,12 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
-    "@netlify/plugin-nextjs": "^5.8.1",
-    "@tanstack/react-query": "^5.59.20",
+    "@netlify/plugin-nextjs": "^5.15.1",
+    "@tanstack/react-query": "^5.90.12",
     "canvas-confetti": "^1.9.4",
     "next": "^16.0.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-icons": "^5.3.0"
   },
   "devDependencies": {
