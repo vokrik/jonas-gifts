@@ -35,9 +35,9 @@ const PricingCard: React.FC<PricingCardProps> = ({title, price, features, isPopu
         setTimeout(() => {
             setShouldStartMoving(true)
             const interval = setInterval(() => {
-                setDuration((prev) => (prev > 0.5 ? prev - 0.1 : 0.5))
+                setDuration((prev) => (prev > 0.8 ? prev - 0.1 : 0.8))
                 setOffset((prevState) => ({x: prevState.x + 0.01, y: prevState.y + 0.01}))
-                if (duration === 0.5) {
+                if (duration === 0.8) {
                     clearInterval(interval)
                 }
             }, 100)
