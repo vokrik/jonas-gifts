@@ -35,7 +35,7 @@ export default function ExtravagantButton({
     const [buttonText] = useState(children)
     const startTimeRef = useRef(Date.now())
     const autoEffectsIntervalRef = useRef<NodeJS.Timeout | null>(null)
-    const animationFrameRef = useRef<number>()
+    const animationFrameRef = useRef<number>(null)
     const [scale, setScale] = useState(1)
     const [borderRadius, setBorderRadius] = useState(16)
     const [hueRotate, setHueRotate] = useState(0)
